@@ -13,13 +13,14 @@ export function SignUpForm() {
     const [birthMonth, setBirthMonth] = useState("");
     const [birthDay, setBirthDay] = useState("");
     const [birthYear, setBirthYear] = useState("");
+    const [birthDate, setBirthDate] = useState("");
 
     function handleSubmit(event) {
         event.preventDefault();
     }
     return (
         <>
-            <form action=""  onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit}>
                 <img src="" alt="" />
                 <p></p>
                 <div>
@@ -77,6 +78,12 @@ export function SignUpForm() {
                         ))}
 
                     </select>
+                    <input
+                        type="date"
+                        value={birthDate}
+                        onChange={(e) => setBirthDate(e.target.value)}
+                    />
+
                 </div>
                 <div>
                     <input type="password" placeholder="رمز عبور" value={formData.password} onChange={(event) => {
