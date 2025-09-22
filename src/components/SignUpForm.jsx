@@ -19,7 +19,7 @@ export function SignUpForm() {
     }
     return (
         <>
-            <form action="" onSubmit={(event) => handleSubmit(event)}>
+            <form action=""  onSubmit={handleSubmit}>
                 <img src="" alt="" />
                 <p></p>
                 <div>
