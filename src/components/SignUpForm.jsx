@@ -11,10 +11,12 @@ export function SignUpForm() {
         confirmPassword: "",
     }
     )
-  
+ function handleSubmit(event) {
+    event.preventDefault();
+}
     return (
         <>
-            <form action="" >
+            <form action="" onSubmit={(event)=>handleSubmit(event)}>
                 <img src="" alt="" />
                 <p></p>
                 <div>
