@@ -1,0 +1,125 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+form {
+    font-family: 'Shabnam', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgb(142, 197, 252), rgb(224, 195, 252));
+    padding: 15px 25px;
+    border-radius: 20px;
+    opacity: 0.8;
+}
+
+.form-header {
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(106, 13, 173);
+    color: rgb(255, 255, 255);
+    padding: 10px 50px;
+}
+
+.name {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.first-name,
+.last-name {
+    font-family: 'Shabnam', sans-serif;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(243, 243, 243);
+    padding: 10px 17px;
+    text-align: end;
+    color: rgb(59, 59, 59);
+    width: 200px;
+}
+
+.other-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.email,
+.company,
+.address,
+.password,
+.confirm-password,
+.date-picker {
+    font-family: 'Shabnam', sans-serif;
+    display: flex;
+    flex-grow: 1;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(243, 243, 243);
+    width: 460px;
+    padding: 10px 10px;
+    text-align: end;
+    font-size: 15px;
+    color: rgb(59, 59, 59);
+}
+
+.sign-up-button {
+    width: 200px;              
+    padding: 12px 20px;        
+    border: none;              
+    border-radius: 12px;        
+    background: linear-gradient(135deg, rgb(106, 13, 173), rgb(142, 68, 173)); 
+    color: rgb(255, 255, 255);               
+    font-family: 'Shabnam', sans-serif; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+.sign-up-button:hover {
+    background: linear-gradient(135deg, rgb(142, 68, 173), rgb(106, 13, 173)); 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.sign-up-button:active {
+    transform: translateY(0); 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.error-message {
+    text-align: end;
+    color: rgb(218, 0, 0);
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.general-error-message {
+    text-align: center;
+    color: rgb(218, 0, 0);
+    font-size: 15px;
+   
+}
+
+.success-message {
+    text-align: center;
+    color: rgb(0, 128, 0);
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.input-error {
+    border: 1px solid rgb(218, 0, 0); 
+    background-color: rgb(255, 236, 236); 
+}
