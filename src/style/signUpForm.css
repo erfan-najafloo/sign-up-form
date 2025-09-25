@@ -1,5 +1,10 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +14,8 @@ body {
 }
 
 form {
+      width: 100%;
+  max-width: 480px;
     font-family: 'Shabnam', sans-serif;
     display: flex;
     flex-direction: column;
@@ -33,9 +40,15 @@ form {
     gap: 10px;
     margin-bottom: 15px;
 }
-
+.name-container {
+  flex: 1;                
+  display: flex;
+  flex-direction: column; 
+}
+.name-container input,
 .first-name,
 .last-name {
+    box-sizing: border-box;
     font-family: 'Shabnam', sans-serif;
     border: none;
     border-radius: 10px;
@@ -43,7 +56,7 @@ form {
     padding: 10px 17px;
     text-align: end;
     color: rgb(59, 59, 59);
-    width: 200px;
+    margin-bottom: 5px;
 }
 
 .other-info {
@@ -51,6 +64,7 @@ form {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .email,
@@ -60,12 +74,11 @@ form {
 .confirm-password,
 .date-picker {
     font-family: 'Shabnam', sans-serif;
-    display: flex;
-    flex-grow: 1;
+      box-sizing: border-box;
+    max-width: 100%;
     border: none;
     border-radius: 10px;
     background-color: rgb(243, 243, 243);
-    width: 460px;
     padding: 10px 10px;
     text-align: end;
     font-size: 15px;

@@ -25,24 +25,39 @@ export function SignUpForm() {
           handleSubmit(event, formData, setErrors, setSuccess)
         }
       >
-        <img src="" alt="" />
         <p className="form-header">فرم ثبت نام</p>
         <div className="name">
-          <div> </div>
-          <input
-            type="text"
-            className={`last-name ${errors.lastName ? "input-error" : ""}`}
-            placeholder="نام خود را وارد نمایید"
-            value={formData.lastName}
-            onChange={(event) => {
-              setFormData({ ...formData, lastName: event.target.value });
-            }}
-          />
+          <div className="name-container">
+            <input
+              type="text"
+              className={`last-name ${errors.lastName ? "input-error" : ""}`}
+              placeholder="نام خانوادگی خود را وارد نمایید"
+              value={formData.lastName}
+              onChange={(event) => {
+                setFormData({ ...formData, lastName: event.target.value });
+              }}
+            />
+            {errors.lastName && (
+              <p className="error-message">{errors.lastName}</p>
+            )}
+          </div>
+
+          <div className="name-container">
+            <input
+              type="text"
+              className={`first-name ${errors.firstName ? "input-error" : ""}`}
+              placeholder="نام خود را وارد نمایید"
+              value={formData.firstName}
+              onChange={(event) => {
+                setFormData({ ...formData, firstName: event.target.value });
+              }}
+            />
+            {errors.firstName && (
+              <p className="error-message">{errors.firstName}</p>
+            )}
+          </div>
         </div>
-        {errors.firstName && (
-          <p className="error-message">{errors.firstName}</p>
-        )}
-        {errors.lastName && <p className="error-message">{errors.lastName}</p>}
+
         <div className="other-info">
           <div>
             <input
@@ -107,7 +122,9 @@ export function SignUpForm() {
           <div>
             <input
               type="password"
-              className={`confirm-password ${errors.confirmPassword ? "input-error" : ""}`}
+              className={`confirm-password ${
+                errors.confirmPassword ? "input-error" : ""
+              }`}
               placeholder="تکرار رمز عبور خود را وارد کنید"
               value={formData.confirmPassword}
               onChange={(event) => {
