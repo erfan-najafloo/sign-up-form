@@ -27,6 +27,20 @@ export function SignUpForm() {
       >
         <p className="form-header">فرم ثبت نام</p>
         <div className="name">
+           <div className="name-container">
+            <input
+              type="text"
+              className={`first-name ${errors.firstName ? "input-error" : ""}`}
+              placeholder="نام خود را وارد نمایید"
+              value={formData.firstName}
+              onChange={(event) => {
+                setFormData({ ...formData, firstName: event.target.value }); 
+              }}
+            />
+            {errors.firstName && (
+              <p className="error-message">{errors.firstName}</p>
+            )}
+          </div>
           <div className="name-container">
             <input
               type="text"
@@ -42,20 +56,7 @@ export function SignUpForm() {
             )}
           </div>
 
-          <div className="name-container">
-            <input
-              type="text"
-              className={`first-name ${errors.firstName ? "input-error" : ""}`}
-              placeholder="نام خود را وارد نمایید"
-              value={formData.firstName}
-              onChange={(event) => {
-                setFormData({ ...formData, firstName: event.target.value });
-              }}
-            />
-            {errors.firstName && (
-              <p className="error-message">{errors.firstName}</p>
-            )}
-          </div>
+         
         </div>
 
         <div className="other-info">
