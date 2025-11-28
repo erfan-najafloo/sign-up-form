@@ -3,6 +3,7 @@
 *::after {
   box-sizing: border-box;
 }
+
 body {
   min-height: 100vh;
   display: flex;
@@ -15,8 +16,8 @@ body {
 
 form {
   width: 100%;
- min-width: 480px;
-  
+  min-width: 480px;
+
   font-family: "Shabnam", sans-serif;
   display: flex;
   flex-direction: column;
@@ -42,18 +43,20 @@ form {
   gap: 10px;
   margin-bottom: 15px;
 }
+
 .name-container {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+
 .name-container input,
 .first-name,
 .last-name {
   box-sizing: border-box;
   font-family: "Shabnam", sans-serif;
-    font-size: 15px;
-width: 100%;
+  font-size: 15px;
+  width: 100%;
   border: none;
   border-radius: 10px;
   background-color: rgb(243, 243, 243);
@@ -62,9 +65,10 @@ width: 100%;
   color: rgb(59, 59, 59);
   margin-bottom: 5px;
 }
+
 .name-container input.input-error {
-    border: 1px solid rgb(218, 0, 0);
-    background-color: rgb(255, 236, 236);
+  border: 1px solid rgb(218, 0, 0);
+  background-color: rgb(255, 236, 236);
 }
 
 .other-info {
@@ -144,17 +148,22 @@ width: 100%;
   border: 1px solid rgb(218, 0, 0);
   background-color: rgb(255, 236, 236);
 }
+
 @media (max-width: 480px) {
   form {
-    width: 100%;      
+    width: 100%;
     min-width: 280px;
     padding: 15px;
   }
 
   .name {
     flex-direction: column;
-        width: 100%;      
+    width: 100%;
 
+  }
+
+  .other-info {
+    gap: 8px;
   }
 
   .sign-up-button {

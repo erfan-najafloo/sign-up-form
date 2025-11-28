@@ -3,6 +3,7 @@ import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { handleSubmit } from "../utils/handleSignUpSubmit";
+import Inputs from "./custom-inputs";
 export function SignUpForm() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -16,7 +17,11 @@ export function SignUpForm() {
   });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
-
+  const form = {
+    data: formData,
+    setData: setFormData,
+    errors: errors,
+  };
   return (
     <>
       <form
@@ -27,74 +32,41 @@ export function SignUpForm() {
       >
         <p className="form-header">فرم ثبت نام</p>
         <div className="name">
-           <div className="name-container">
-            <input
-              type="text"
-              className={`first-name ${errors.firstName ? "input-error" : ""}`}
-              placeholder="نام خود را وارد نمایید"
-              value={formData.firstName}
-              onChange={(event) => {
-                setFormData({ ...formData, firstName: event.target.value }); 
-              }}
-            />
-            {errors.firstName && (
-              <p className="error-message">{errors.firstName}</p>
-            )}
-          </div>
-          <div className="name-container">
-            <input
-              type="text"
-              className={`last-name ${errors.lastName ? "input-error" : ""}`}
-              placeholder="نام خانوادگی خود را وارد نمایید"
-              value={formData.lastName}
-              onChange={(event) => {
-                setFormData({ ...formData, lastName: event.target.value });
-              }}
-            />
-            {errors.lastName && (
-              <p className="error-message">{errors.lastName}</p>
-            )}
-          </div>
-
-         
+          <Inputs
+            inputName="lastName"
+            placeholder="نام خانوادگی خود را وارد نمایید"
+            className="last-name"
+            form={form}
+          />
+          <Inputs
+            inputName="firstName"
+            placeholder="نام خود را وارد نمایید"
+            className="first-name"
+            form={form}
+          />
         </div>
 
         <div className="other-info">
-          <div>
-            <input
-              type="text"
-              className={`email ${errors.email ? "input-error" : ""}`}
-              placeholder="ایمیل خود را وارد کنید"
-              value={formData.email}
-              onChange={(event) => {
-                setFormData({ ...formData, email: event.target.value });
-              }}
-            />
-          </div>
-          {errors.email && <p className="error-message">{errors.email}</p>}
-          <div>
-            <input
-              type="text"
-              className={`company ${errors.company ? "input-error" : ""}`}
-              placeholder="نام شرکت خود را وارد کنید (اختیاری)"
-              value={formData.company}
-              onChange={(event) => {
-                setFormData({ ...formData, company: event.target.value });
-              }}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              className={`address ${errors.address ? "input-error" : ""}`}
-              placeholder="آدرس خود را وارد کنید"
-              value={formData.address}
-              onChange={(event) => {
-                setFormData({ ...formData, address: event.target.value });
-              }}
-            />
-          </div>
-          {errors.address && <p className="error-message">{errors.address}</p>}
+          <Inputs
+            inputName="email"
+            placeholder="ایمیل خود را وارد کنید"
+            className="email"
+            form={form}
+          />
+
+          <Inputs
+            inputName="company"
+            placeholder="نام شرکت (اختیاری)"
+            className="company"
+            form={form}
+          />
+
+          <Inputs
+            inputName="address"
+            placeholder="آدرس خود را وارد کنید"
+            className="address"
+            form={form}
+          />
           <DatePicker
             inputClass={`date-picker ${errors.birthDate ? "input-error" : ""}`}
             value={formData.birthDate}
@@ -106,39 +78,19 @@ export function SignUpForm() {
           {errors.birthDate && (
             <p className="error-message">{errors.birthDate}</p>
           )}
-          <div>
-            <input
-              type="password"
-              className={`password ${errors.password ? "input-error" : ""}`}
-              placeholder="رمز عبور خود را وارد کنید"
-              value={formData.password}
-              onChange={(event) => {
-                setFormData({ ...formData, password: event.target.value });
-              }}
-            />
-          </div>
-          {errors.password && (
-            <p className="error-message">{errors.password}</p>
-          )}
-          <div>
-            <input
-              type="password"
-              className={`confirm-password ${
-                errors.confirmPassword ? "input-error" : ""
-              }`}
-              placeholder="تکرار رمز عبور خود را وارد کنید"
-              value={formData.confirmPassword}
-              onChange={(event) => {
-                setFormData({
-                  ...formData,
-                  confirmPassword: event.target.value,
-                });
-              }}
-            />
-          </div>
-          {errors.confirmPassword && (
-            <p className="error-message">{errors.confirmPassword}</p>
-          )}
+          <Inputs
+            inputName="password"
+            placeholder="رمز عبور خود را وارد کنید"
+            className="password"
+            form={form}
+          />
+
+          <Inputs
+            inputName="confirmPassword"
+            placeholder="تکرار رمز عبور خود را وارد کنید"
+            className="confirm-password"
+            form={form}
+          />
         </div>
         <button className="sign-up-button">ثبت نام</button>
         {errors.general && (
